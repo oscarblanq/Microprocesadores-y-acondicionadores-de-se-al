@@ -11,10 +11,12 @@
  * • Control de inicio de medida de temperatura 0x2A
  * • Función: void write_1byte(uint8_t device_addr, uint8_t write_addr, uint8_t data);
  */
+ #include <Wire.h>
+ #include <M5Stack.h>
+ 
  #define BMP180 0x77;
  #define registroControl 0xF4;
  #define inicioTemperatura 0x2A
-
  const int pinSDA = 21;
  const int pinSCL = 22;
 void setup() {
