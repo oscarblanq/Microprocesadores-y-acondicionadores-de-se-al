@@ -54,7 +54,7 @@ void loop() {
    Serial1.print(dato1);
    
    // Lee datos recibidos por UART2 y los envia a UART0
-   dato2 = Seria.read();
+   dato2 = Serial.read();
    Serial.print(dato2);
   }
 }
