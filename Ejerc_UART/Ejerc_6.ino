@@ -42,7 +42,7 @@ static void  IRAM_ATTR ISR_UART(void *arg)
   rx_fifo_len = UART0.status.rxfifo_cnt; 
   
   // Leer los bytes del buffer mientras que la variable sea >0
-  while(rx_fifo_len){
+  while(rx_fifo_len > 0){
    rxbuf[i++] = UART0.fifo.rw_byte; // read all bytes
    rx_fifo_len--;
    Flag_uart_int++;
