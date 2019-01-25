@@ -38,12 +38,6 @@ uint16_t read_2bytes(uint8_t device_addr, uint8_t read_addr){
   Wire.endTransmission();
 
   Wire.requestFrom(device_addr, 2);
-  uint16_t temp = Wire.read();
-  temp += Wire.read();
-  /*
-   * (*1) El bit menos significativo (LSB) no hace falta ya que cuando
-   * se realiza otro Wire.read() lee el próximo byte que le sigue y así
-   * hasta los bytes que queramos leer en el srequestFrom()
-   */
+  uint16_t temp = Wire.read() << 8 | Wire.read()
   return temp;
 }
